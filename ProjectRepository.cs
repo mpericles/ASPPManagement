@@ -61,9 +61,8 @@ namespace ASPPManagement
         //delete projects
         public void DeleteProject(Project project)
         {
-            _conn.Execute("DELETE FROM REVIEWS WHERE ProjectID = @id;", new { id = project.ProjectID });
-            _conn.Execute("DELETE FROM Sales WHERE ProjectID = @id;", new { id = project.ProjectID });
-            _conn.Execute("DELETE FROM Products WHERE ProjectID = @id;", new { id = project.ProjectID });
+            _conn.Execute("DELETE FROM PROJECTS WHERE ProjectID = @id;", new { id = project.ProjectID });
+           
         }
     }
 }
