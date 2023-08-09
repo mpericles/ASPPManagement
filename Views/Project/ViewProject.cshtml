@@ -1,0 +1,35 @@
+﻿@model Project
+
+<h3>@Model.Name Information</h3>
+
+<table class="table">
+    <tr>
+        <th>ProjectID</th>
+        <th>Name</th>
+        <th>Cost</th>
+        <th>PortfolioID</th>
+        <th>Active</th>
+        <th>Level</th>
+    </tr>
+    <tr>
+        <td>@Model.ProjectID</td>
+        <td>@Model.Name</td>
+        <td>@Model.Cost</td>
+        <td>@Model.PortfolioID</td>
+        <td>@Model.Active</td>
+        <td>@Model.Level</td>
+    </tr>
+</table>
+
+<div style="display: block">
+    <a href="/Project/UpdateProject/@Model.ProjectID">Update this Project</a>
+</div>
+
+<div style="display: block">
+
+    @using (Html.BeginForm("DeleteProject", "Project", "Post"))
+    {
+        <input type="hidden" asp-for="ProjectID" value="@Model.ProjectID" />
+        <input type="submit" onclick="return confirm('Are you sure?')" value="Delete this project" />
+    }
+</div>
